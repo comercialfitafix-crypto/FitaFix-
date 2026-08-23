@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fitafix - Cintas de elevação, amarração de cargas e acessórios.">
+  <title>Fitafix | Elevação e Amarração de Cargas</title>
+  <style>
+    :root{
+      --bg:#060606;--panel:#111;--line:#2b2b2b;
+      --text:#f7f7f7;--muted:#b8b8b8;--orange:#ff6900;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1180px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:50;background:#050505ef;border-bottom:1px solid #242424;backdrop-filter:blur(8px)}
+    nav{min-height:78px;display:flex;align-items:center;gap:22px;justify-content:space-between}
+    .brand img{width:155px;height:58px;object-fit:contain;object-position:left center}
+    .menu{display:flex;gap:28px;font-size:12px;font-weight:800}
+    .menu a:hover{color:var(--orange)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 20px;background:var(--orange);border:1px solid var(--orange);font-weight:900;font-size:13px}
+    .btn-outline{background:transparent}
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid #202020}
+    .hero:before{content:"";position:absolute;inset:0;background:
+      radial-gradient(circle at 80% 45%,#ff690021,transparent 30%),
+      linear-gradient(120deg,#050505 25%,#101010 60%,#060606)}
+    .hero-grid{position:relative;z-index:2;min-height:610px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:36px;padding:58px 0}
+    .kicker{font-size:12px;color:var(--orange);font-weight:900;letter-spacing:1.5px;text-transform:uppercase}
+    h1{font-size:clamp(44px,5.7vw,78px);line-height:.95;letter-spacing:-2.5px;text-transform:uppercase;margin:14px 0 22px}
+    h1 span{color:var(--orange)}
+    .lead{color:#d0d0d0;line-height:1.65;font-size:18px;max-width:650px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .hero-art{position:relative}
+    .hero-art:before{content:"";position:absolute;inset:9% 7%;border:2px solid #ff690057;transform:rotate(-5deg);border-radius:28px}
+    .hero-art img{position:relative;z-index:2;filter:drop-shadow(0 20px 50px #000);border-radius:12px}
+    .trust{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:5px}
+    .trust div{border-top:1px solid #333;padding-top:14px;font-size:12px;font-weight:800;color:#e2e2e2}
+    section{padding:72px 0;border-top:1px solid #202020}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+    h2{font-size:36px;text-transform:uppercase;margin:5px 0 0;letter-spacing:-1px}
+    h2 span{color:var(--orange)}
+    .section-head p{max-width:530px;color:var(--muted);line-height:1.6}
+    .card .pic{height:150px;border-radius:9px;margin-bottom:15px;background:#090909;overflow:hidden}
+    .card .pic img{width:100%;height:100%;object-fit:cover}
+    .card h3{font-size:13px;text-transform:uppercase;margin:0 0 8px}
+    .card small{color:var(--orange);font-weight:900}
+    .applications{display:grid;grid-template-columns:1.2fr 1fr;background:#0e0e0e;border:1px solid #2b2b2b;border-radius:16px;overflow:hidden}
+    .application-visual{min-height:370px;background:
+      linear-gradient(#0006,#0006),
+      url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80') center/cover}
+    .application-copy{padding:42px}
+    .application-copy p{color:var(--muted);line-height:1.7}
+    .benefits{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0}
+    .benefit{padding:14px;border:1px solid #2c2c2c;border-radius:10px;font-size:13px;font-weight:800}
+    .benefit b{color:var(--orange);margin-right:6px}
+    .cta{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:36px;border:1px solid #333;border-radius:16px;background:linear-gradient(100deg,#0d0d0d,#171717)}
+    .cta h3{font-size:30px;text-transform:uppercase;margin:0 0 8px}
+    .cta h3 span{color:var(--orange)}
+    .cta p{margin:0;color:var(--muted)}
+    footer{padding:34px 0;border-top:1px solid #222}
+    .footer{display:flex;justify-content:space-between;align-items:center;gap:20px;color:#aaa;font-size:12px}
+    .footer img{width:130px;height:70px;object-fit:contain}
+    .wa{position:fixed;right:16px;bottom:16px;z-index:60;background:#25D366;color:#05200d;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 10px 30px #0009}
+    @media(max-width:900px){
+      .menu{display:none}.hero-grid{grid-template-columns:1fr;min-height:auto;padding:42px 0 52px}
+      .hero-art{max-width:640px;margin:auto}.trust{grid-template-columns:1fr}
+      .products{grid-template-columns:repeat(2,1fr)}.applications{grid-template-columns:1fr}
+      .application-visual{min-height:280px}
+    }
+    @media(max-width:560px){
+      nav{min-height:66px}.brand img{width:122px;height:48px}.btn.nav{padding:10px 13px;font-size:10px}
+      h1{font-size:44px}.lead{font-size:17px}.products{grid-template-columns:1fr}
+      section{padding:52px 0}.section-head{display:block}h2{font-size:29px}
+      .application-copy{padding:26px}.benefits{grid-template-columns:1fr}
+      .cta{flex-direction:column;align-items:flex-start}.footer{flex-direction:column;align-items:flex-start}
+    }
+
+    .products{display:grid;grid-template-columns:1fr;gap:14px}
+    .card{
+      display:grid;grid-template-columns:minmax(280px,42%) 1fr;
+      min-height:230px;background:linear-gradient(145deg,#111,#0b0b0b);
+      border:1px solid #333;border-radius:18px;overflow:hidden;
+      align-items:stretch;transition:.2s ease;
+    }
+    .card:hover{transform:translateY(-2px);border-color:#ff6900}
+    .card .pic{height:100%;min-height:230px;background:#080808;overflow:hidden}
+    .card .pic img{width:100%;height:100%;object-fit:cover}
+    .card .card-copy{
+      padding:28px 30px;display:flex;flex-direction:column;justify-content:center;
+      border-left:5px solid var(--orange);
+    }
+    .card h3{font-size:29px;line-height:1.02;margin:0 0 15px;text-transform:uppercase}
+    .card p{color:#bdbdbd;font-size:16px;line-height:1.45;margin:0 0 14px}
+    .card small{color:var(--orange);font-size:18px;font-weight:900}
+    @media(max-width:700px){
+      .card{grid-template-columns:1fr;min-height:0}
+      .card .pic{min-height:210px;height:210px}
+      .card .card-copy{border-left:0;border-top:5px solid var(--orange);padding:22px}
+      .card h3{font-size:25px}
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#inicio"><img src="IMG_3906.jpeg" alt="Fitafix"></a>
+      <div class="menu">
+        <a href="#inicio">INÍCIO</a>
+        <a href="#produtos">PRODUTOS</a>
+        <a href="#sobre">SOBRE NÓS</a>
+        <a href="#contato">CONTATO</a>
+      </div>
+      <a class="btn btn-outline nav" href="https://wa.me/5511948458879?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Fitafix%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">FAÇA SEU ORÇAMENTO</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">Segurança em cada movimento</div>
+        <h1>Cintas de elevação e amarração de cargas <span>Fitafix</span></h1>
+        <p class="lead">Soluções completas para movimentação e transporte de cargas com segurança, qualidade e durabilidade.</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/5511948458879?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Fitafix%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">SOLICITAR ORÇAMENTO</a>
+          <a class="btn btn-outline" href="#produtos">VER PRODUTOS</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="IMG_3906.jpeg" alt="Logo Fitafix com cinta, catraca e gancho">
+      </div>
+      <div class="trust">
+        <div>✓ PRODUTOS DE QUALIDADE</div>
+        <div>✓ ENTREGA RÁPIDA</div>
+        <div>✓ ATENDIMENTO ESPECIALIZADO</div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="produtos">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">Nossos produtos</div><h2>Conheça nossa <span>linha completa</span></h2></div>
+        <p>Trabalhamos com soluções para elevação, amarração e movimentação de cargas para diferentes aplicações.</p>
+      </div>
+      <div class="products">
+
+        <article class="card">
+          <div class="pic"><img src="produto-cintas-elevacao.webp" alt="Cintas de elevação"></div>
+          <div class="card-copy"><h3>Cintas de elevação</h3><p>Cintas resistentes para elevação de cargas com segurança e eficiência.</p><small>Saiba mais →</small></div>
+        </article>
+
+        <article class="card">
+          <div class="pic"><img src="produto-cintas-amarracao.webp" alt="Cintas de amarração"></div>
+          <div class="card-copy"><h3>Cintas de amarração</h3><p>Amarração segura para transporte de cargas, com alta resistência e durabilidade.</p><small>Saiba mais →</small></div>
+        </article>
+
+        <article class="card">
+          <div class="pic"><img src="produto-catracas.webp" alt="Catracas e acessórios"></div>
+          <div class="card-copy"><h3>Catracas e acessórios</h3><p>Componentes de alta qualidade para maior firmeza e segurança na fixação de cargas.</p><small>Saiba mais →</small></div>
+        </article>
+
+        <article class="card">
+          <div class="pic"><img src="produto-protecoes.webp" alt="Proteções para cintas"></div>
+          <div class="card-copy"><h3>Proteções para cintas</h3><p>Proteção que ajuda a evitar danos às cintas e aumenta a vida útil dos equipamentos.</p><small>Saiba mais →</small></div>
+        </article>
+
+        <article class="card">
+          <div class="pic"><img src="produto-manilhas-acessorios.webp" alt="Manilhas e acessórios"></div>
+          <div class="card-copy"><h3>Manilhas e acessórios</h3><p>Acessórios essenciais para conexões seguras em elevação e amarração de cargas.</p><small>Saiba mais →</small></div>
+        </article>
+
+        <article class="card">
+          <div class="pic"><img src="produto-cabos-aco.webp" alt="Cabos de aço"></div>
+          <div class="card-copy"><h3>Cabos de aço</h3><p>Resistência e confiabilidade para diversas aplicações de movimentação de cargas.</p><small>Saiba mais →</small></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="sobre">
+    <div class="wrap">
+      <div class="applications">
+        <div class="application-visual"></div>
+        <div class="application-copy">
+          <div class="kicker">Aplicações</div>
+          <h2>Do industrial ao <span>transporte</span></h2>
+          <p>Soluções para diferentes setores, com foco em segurança, resistência e praticidade nas operações de movimentação e transporte de cargas.</p>
+          <div class="benefits">
+            <div class="benefit"><b>✓</b> Máxima segurança</div>
+            <div class="benefit"><b>✓</b> Qualidade</div>
+            <div class="benefit"><b>✓</b> Suporte especializado</div>
+            <div class="benefit"><b>✓</b> Atendimento personalizado</div>
+          </div>
+          <a class="btn" href="https://wa.me/5511948458879?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Fitafix%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">FALE CONOSCO</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <div class="kicker">Atendimento rápido e especializado</div>
+          <h3>Faça seu <span>orçamento</span> sem compromisso</h3>
+          <p>Entre em contato com a Fitafix e solicite seu orçamento.</p>
+        </div>
+        <a class="btn" href="https://wa.me/5511948458879?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Fitafix%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">CHAMAR NO WHATSAPP</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer">
+    <img src="IMG_3906.jpeg" alt="Fitafix">
+    <div>Qualidade, segurança e eficiência em cada operação.</div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5511948458879?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Fitafix%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp</a>
+</body>
+</html>
